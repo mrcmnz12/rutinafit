@@ -1,0 +1,32 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+*.iml
+
+# Plataformas generadas por `flutter create .`
+/android/.gradle/
+/android/local.properties
+/android/**/gradle-wrapper.jar
+/ios/Pods/
+/ios/.symlinks/
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Flutter.podspec
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Datos locales sensibles (nunca versionar la base del usuario ni imágenes reales)
+*.db
+*.sqlite
+/app_images/
+.env
+
+# Respaldos/descartes locales (no se versionan)
+/_trash/

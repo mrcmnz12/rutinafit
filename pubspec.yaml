@@ -1,0 +1,80 @@
+name: rutinafit
+description: "RutinaFit - seguimiento de rutinas de gimnasio, 100% local (SQLite), pensado para escalar a multiplataforma."
+publish_to: 'none'
+version: 0.2.0+2
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # Persistencia local (SQLite)
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  path_provider: ^2.1.3
+
+  # Estado de la app
+  provider: ^6.1.2
+
+  # Gráficos de evolución (peso, reps, tiempo)
+  fl_chart: ^0.68.0
+
+  # Selección de imágenes de referencia por ejercicio (cámara/galería)
+  image_picker: ^1.1.2
+
+  # Abrir el link de video de un ejercicio en el navegador/app externa
+  url_launcher: ^6.3.0
+
+  # Formateo de fechas en español
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+  # Generadores del ícono de la app y la pantalla de carga a partir de
+  # assets/icon y assets/splash — no agregan nada al binario final, solo
+  # corren una vez para escribir los recursos nativos de Android. Correr
+  # tras `flutter pub get`:
+  #   dart run flutter_launcher_icons
+  #   dart run flutter_native_splash:create
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.4.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/exercise_images/
+    - assets/icon/
+    - assets/splash/
+
+# Ícono de la app (el que se ve una vez instalada). icon_full.png tiene
+# el fondo de marca ya incluido (para ícono clásico); icon_fg.png es el
+# mismo isotipo "RF" sin fondo, centrado en la zona segura, para el
+# ícono adaptativo de Android (el sistema le aplica su propia máscara —
+# círculo, squircle, etc. — sobre adaptive_icon_background).
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/icon/icon_full.png"
+  adaptive_icon_background: "#0E0E0E"
+  adaptive_icon_foreground: "assets/icon/icon_fg.png"
+  min_sdk_android: 21
+
+# Pantalla de carga nativa: se ve durante el arranque (motor de Flutter
+# cargando), antes de que exista cualquier widget — por eso no depende
+# de código Dart. splash_logo.png es el isotipo + "RUTINAFIT" completo;
+# Android 12+ solo admite un ícono pequeño y sin texto en su splash
+# nativo, así que ahí se usa la versión compacta.
+flutter_native_splash:
+  color: "#0E0E0E"
+  image: assets/splash/splash_logo.png
+  android: true
+  ios: false
+  android_12:
+    color: "#0E0E0E"
+    image: assets/splash/splash_logo_android12.png
